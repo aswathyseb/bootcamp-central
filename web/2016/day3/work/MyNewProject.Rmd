@@ -1,0 +1,37 @@
+
+---
+My first RmarkDown
+----
+
+```{r Normal1}
+x=rnorm(1000,mean=2,sd=3)
+hist(x,main="N(2,9)",xlab="Random Numbers",nclass=50)
+
+```
+
+Generate the phenotypic scores as 20 random normals. Call this vector pheno.
+
+```{r Normal}
+nsamples=20
+pheno = rnorm(nsamples)
+```
+
+Generate the gene expression scores as a matrix with 1000 rows (genes) and 20 columns (samples). Call this matrix genes.
+
+```{r GeneExpression }
+ngenes=1000
+
+scores=rnorm(nsamples*ngenes)
+genes=matrix(scores,nrow=1000,ncol=20)
+```
+
+Compute the 1000 correlations between the phenotypic scores and the gene expression scores. Note that you will need to transpose the gene expression matrix to do this. 
+
+```{r Correlation}
+cors=cor(t(genes),pheno)
+```
+
+visualization
+```{r histCor}
+hist(cors,nclass=50,xlab="Correlations",main="Correlation between Gene Expression and Phenotype")
+```
