@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n---\nMy first RmarkDown\n------\n\nGenerate the phenotypic scores as 20 random normals. Call this vector pheno.\n\n```{r Normal}\nnsamples=20\npheno = rnorm(nsamples)\n```\n\nGenerate the gene expression scores as a matrix with 1000 rows (genes) and 20 columns (samples). Call this matrix genes.\n\n```{r GeneExpression }\nngenes=1000\n\nscores=rnorm(nsamples*ngenes)\ngenes=matrix(scores,nrow=1000,ncol=20)\n```\n\nCompute the 1000 correlations between the phenotypic scores and the gene expression scores. Note that you will need to transpose the gene expression matrix to do this. \n\n```{r Correlation}\ncors=cor(t(genes),pheno)\n```\n\nvisualization\n```{r histCor}\nhist(cors,nclass=50,xlab=\"Correlations\",main=\"Correlation between Gene Expression and Phenotype\")\n```\n\n",
+    "created" : 1465398176390.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3492081660",
+    "id" : "B30ED567",
+    "lastKnownWriteTime" : 1465411163,
+    "last_content_update" : 1465411163959,
+    "path" : "~/gitrepo/bootcamp-central/web/2016/day3/work/MyNewProject.Rmd",
+    "project_path" : "MyNewProject.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

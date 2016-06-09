@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Simulation 1\"\nauthor: \"Naomi Altman\"\ndate: \"May 30, 2016\"\noutput: html_document\n---\n\nWe start by generating 20 random normals to represent the phenotypic scores of 20 samples and saving them in a variable called *pheno*.\n\n```{r phenotype}\nnsamp=20\n  pheno=rnorm(nsamp)\n```\n\nThen we generate 1000 gene expressions.  Each has a value for each of the 20 samples.  Typically gene expression values are stored in a matrix with genes in the rows and samples in the columns.  This matrix is therefore 1000 by 20.\n\n```{r genes}\nngene=1000\ngenes=matrix(rnorm(nsamp*ngene),ncol=nsamp)\n```\n\nNext we compute the correlation between the phenotypic score and gene expression.  The R *cor* command computes the correlation between the columns of two matrices.\n\nSince the genes are in the rows, we need to transpose the gene expression matrix to compute the correlations.\n\n```{r correlation}\ncors=cor(t(genes),pheno)\n```\n\nTo visualize the correlations, we draw a histogram.  Since we have 1000 correlations, we can have quite a few bins - I selected 50 but R adjusts this based on some algorithm.\n\n```{r histCor}\nhist(cors,nclass=50,xlab=\"Correlations\",main=\"Correlation between Gene Expression and Phenotype\")\n```\n\nNext we select the 10 genes with the largest absolute correlation.  These are the genes the are individually most predictive of phenotypic score (in this data set).\n\n```{r select}\nnsel=10\n  selgenes=order(cors,decreasing=FALSE)[1:nsel]\n  sigGenes=genes[selgenes,]\n```\n\nFinally, we do the linear regression on the fitted genes and compute the $R^2$.\n\n```{r regression}\nregout=lm(pheno~t(sigGenes))\nR2=var(fitted(regout))/var(pheno)\nanova(regout)\nR2\n```\n",
+    "created" : 1465399337852.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2443264905",
+    "id" : "8F1F3931",
+    "lastKnownWriteTime" : 1465399677,
+    "last_content_update" : 1465399677759,
+    "path" : "~/gitrepo/bootcamp-central/web/2016/day3/docs/Simulation1.Rmd",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

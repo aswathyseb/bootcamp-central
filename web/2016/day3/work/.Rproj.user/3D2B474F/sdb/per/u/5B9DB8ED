@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nfn1= function(x,y)\n{\n z=x+y \n}",
+    "created" : 1465401772106.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3249301642",
+    "id" : "5B9DB8ED",
+    "lastKnownWriteTime" : 4189021005542326272,
+    "last_content_update" : 1465401870767,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

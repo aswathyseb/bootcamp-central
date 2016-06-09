@@ -1,13 +1,7 @@
 
 ---
 My first RmarkDown
-----
-
-```{r Normal1}
-x=rnorm(1000,mean=2,sd=3)
-hist(x,main="N(2,9)",xlab="Random Numbers",nclass=50)
-
-```
+------
 
 Generate the phenotypic scores as 20 random normals. Call this vector pheno.
 
@@ -35,3 +29,4 @@ visualization
 ```{r histCor}
 hist(cors,nclass=50,xlab="Correlations",main="Correlation between Gene Expression and Phenotype")
 ```
+
